@@ -3,11 +3,21 @@
 <div class="row">
   <div class="col-sm-4">
     <label>Object ID</label>
-    {{input type='number' value=object_id}}
+    <p>
+      {{input type='number' value=object_id}}
+    </p>
   </div>
 
   <div class="col-sm-4">
     <label>Object Type</label>
+    {{#power-select
+      selected=object_type
+      options=objectTypes
+      onchange=(action (mut object_type))
+      as |type|
+    }}
+      {{type}}
+    {{/power-select}}
   </div>
 
   <div class="col-sm-4">

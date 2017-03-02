@@ -7,6 +7,8 @@ export default Ember.Controller.extend({
   object_type: null,
   timestamp: null,
 
+  objectTypes: ['Order', 'Invoice', 'Product'],
+
   changes: Ember.computed('model', function() {
     return Ember.keys(this.get('model').toJSON())
     .filter(key => { return !Ember.isNone(this.get(`model.${key}`)) })
