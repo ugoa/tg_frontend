@@ -14,3 +14,12 @@
     <label>Timestamp</label>
   </div>
 </div>
+
+<div class="row change_logs">
+  <code class="col-sm-12">
+    {{#each-in changes as |key value| }}
+      <label>{{key}}</label>:
+      <p>{{value}}</p>
+    {{/each-in}}
+  </code>
+</div>
