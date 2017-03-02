@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import EmberUploader from 'ember-uploader';
 import config from 'tg-frontend/config/environment';
 
@@ -13,7 +14,7 @@ export default EmberUploader.FileField.extend({
     }
 
     uploader.on('didUpload', e => {
-      alert('upload succeed')
-    })
+      alert('upload succeed');
+    });
   }
 });
