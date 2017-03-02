@@ -8,7 +8,8 @@ export default Ember.Controller.extend({
   timestamp: null,
 
   changes: Ember.computed('model', function() {
-    console.log(this.get('model').toJSON());
-    return this.get('model').toJSON();
+    return Ember.keys(this.get('model').toJSON())
+    .filter(key => { return !Ember.isNone(this.get(`model.${key}`)) })
+    .map(key => ({ key: key, value: this.get(`model.${key}`) }))
   }),
 });
