@@ -44,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.uploadURL = 'http://localhost:3000';
+    ENV.uploadURL = 'https://tg-backend-api.herokuapp.com';
   }
 
   return ENV;
