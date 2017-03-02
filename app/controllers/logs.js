@@ -12,10 +12,11 @@ export default Ember.Controller.extend({
   changes: Ember.computed('model', function() {
     if (Ember.isNone(this.get('model'))) {
       return [];
+    } else {
+      return Object.keys(this.get('model').toJSON())
+      .filter(key => { return !Ember.isNone(this.get(`model.${key}`)) })
+      .map(key => ({ key: key, value: this.get(`model.${key}`) }))
     }
-    return Object.keys(this.get('model').toJSON())
-    .filter(key => { return !Ember.isNone(this.get(`model.${key}`)) })
-    .map(key => ({ key: key, value: this.get(`model.${key}`) }))
   }),
 
   actions: {
