@@ -10,6 +10,9 @@ export default Ember.Route.extend({
   model(params) {
     return this.store.query('log', params)
     .then(logs => {
+      if (Ember.isEmpty(logs)) {
+        this.store.unloadAll('log');
+      }
       return logs.get('firstObject');
     })
   }
