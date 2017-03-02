@@ -10,8 +10,14 @@ export default Ember.Controller.extend({
   objectTypes: ['Order', 'Invoice', 'Product'],
 
   changes: Ember.computed('model', function() {
-    return Ember.keys(this.get('model').toJSON())
+    return Object.keys(this.get('model').toJSON())
     .filter(key => { return !Ember.isNone(this.get(`model.${key}`)) })
     .map(key => ({ key: key, value: this.get(`model.${key}`) }))
   }),
+
+  actions: {
+    updateTimestamp(date) {
+      this.set('timestamp', new Date(date).getTime() / 1000);
+    }
+  }
 });

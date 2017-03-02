@@ -22,6 +22,14 @@
 
   <div class="col-sm-4">
     <label>Timestamp</label>
+    <div>
+      {{ember-flatpickr
+        enableTime=true
+        minuteIncrement=1
+        enableSeconds=true
+        onChange=(action 'updateTimestamp')
+      }}
+    </div>
   </div>
 </div>
 
