@@ -5,7 +5,7 @@ import config from 'tg-frontend/config/environment';
 export default EmberUploader.FileField.extend({
   filesDidChange: function(files) {
     const uploader = EmberUploader.Uploader.create({
-      url: `${config.uploadURL}/csv_importings`
+      url: `${config.host}/csv_importings`
     });
 
     if (!Ember.isEmpty(files)) {
