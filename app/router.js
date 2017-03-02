@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('importings', function() {
     this.route('new');
   });
+  this.route('logs');
 });
 
 export default Router;

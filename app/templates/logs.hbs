@@ -1,0 +1,43 @@
+{{outlet}}
+
+<div class="row">
+  <div class="col-sm-4">
+    <label>Object ID</label>
+    <p>
+      {{input type='number' value=object_id}}
+    </p>
+  </div>
+
+  <div class="col-sm-4">
+    <label>Object Type</label>
+    {{#power-select
+      selected=object_type
+      options=objectTypes
+      onchange=(action (mut object_type))
+      as |type|
+    }}
+      {{type}}
+    {{/power-select}}
+  </div>
+
+  <div class="col-sm-4">
+    <label>Timestamp</label>
+    <div>
+      {{ember-flatpickr
+        enableTime=true
+        minuteIncrement=1
+        enableSeconds=true
+        onChange=(action 'updateTimestamp')
+      }}
+    </div>
+  </div>
+</div>
+
+<div class="row change_logs">
+  <code class="col-sm-12">
+    {{#each changes as |change| }}
+      <label>{{change.key}}</label>:
+      <p>{{change.value}}</p>
+    {{/each}}
+  </code>
+</div>

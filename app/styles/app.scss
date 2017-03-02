@@ -1,1 +1,11 @@
 @import "ember-bootstrap/bootstrap";
+
+.container {
+  padding: 40px;
+
+  .change_logs {
+    padding-top: 20px;
+  }
+}
+
+@import "ember-power-select";
